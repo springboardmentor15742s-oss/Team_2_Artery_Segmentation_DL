@@ -1,0 +1,295 @@
+// Isolated Clinical Mock Data
+// Easily swappable with FastAPI endpoints
+
+export const INITIAL_USER = {
+  id: 'USR-1042',
+  name: 'Dr. Sarah Mitchell',
+  email: 's.mitchell@hospital.med.org',
+  role: 'Radiologist / Clinician',
+  department: 'Diagnostic & Interventional Radiology',
+  institution: 'University Cardiovascular Institute',
+  phone: '+1 (555) 234-8900',
+  licenseNumber: 'MD-928410',
+  avatar: null,
+  preferences: {
+    notificationsEmail: true,
+    autoValidateUploads: true,
+    compactTableView: false,
+  }
+};
+
+export const ROLES = [
+  'Radiologist / Clinician',
+  'Medical Researcher',
+  'Data Scientist / ML Engineer',
+  'Administrator'
+];
+
+export const IMAGING_MODALITIES = [
+  'CTA (Computed Tomography Angiography)',
+  'MRA (Magnetic Resonance Angiography)',
+  'DSA (Digital Subtraction Angiography)',
+  'X-ray Angiography'
+];
+
+export const ANATOMICAL_REGIONS = [
+  'Coronary Arteries',
+  'Carotid Arteries',
+  'Cerebral Arteries',
+  'Aortic Arch & Thoracic Aorta',
+  'Renal Arteries',
+  'Peripheral / Femoral Arteries'
+];
+
+export const INITIAL_CASES = [
+  {
+    id: 'CAS-2024-001',
+    patientId: 'PAT-8821',
+    age: 64,
+    gender: 'Male',
+    medicalHistory: 'History of transient ischemic attacks (TIA), controlled type 2 diabetes.',
+    riskFactors: ['Hypertension', 'Diabetes Type 2', 'Former Smoker', 'Hyperlipidemia'],
+    clinicalNotes: 'Recurrent amaurosis fugax symptoms. Suspected hemodynamic stenosis at left carotid bifurcation.',
+    modality: 'CTA (Computed Tomography Angiography)',
+    scanDate: '2024-10-08',
+    anatomicalRegion: 'Carotid Arteries',
+    status: 'Completed',
+    modelVersion: 'v1.4.2-baseline',
+    createdAt: '2024-10-08T09:24:00Z',
+    fileInfo: {
+      fileName: 'PAT8821_CAROTID_CTA_VOL01.dcm',
+      fileSize: '142.8 MB',
+      fileType: 'DICOM (.dcm)',
+      slices: 512,
+      resolution: '512 x 512 x 0.625mm',
+      uploadedAt: '2024-10-08T09:30:15Z',
+      uploadStatus: 'Completed',
+      preprocessingStatus: 'Ready for Analysis'
+    }
+  },
+  {
+    id: 'CAS-2024-002',
+    patientId: 'PAT-7910',
+    age: 58,
+    gender: 'Female',
+    medicalHistory: 'Exertional angina, hypercholesterolemia, family history of premature CAD.',
+    riskFactors: ['Hyperlipidemia', 'Family History CAD', 'Hypertension'],
+    clinicalNotes: 'Evaluation for suspected LAD stenosis following positive treadmill stress test.',
+    modality: 'CTA (Computed Tomography Angiography)',
+    scanDate: '2024-10-09',
+    anatomicalRegion: 'Coronary Arteries',
+    status: 'In Progress',
+    modelVersion: 'v1.4.2-baseline',
+    createdAt: '2024-10-09T11:15:00Z',
+    fileInfo: {
+      fileName: 'PAT7910_CORONARY_CTA_SERIES.nii.gz',
+      fileSize: '89.4 MB',
+      fileType: 'NIfTI (.nii.gz)',
+      slices: 384,
+      resolution: '512 x 512 x 0.5mm',
+      uploadedAt: '2024-10-09T11:18:22Z',
+      uploadStatus: 'Completed',
+      preprocessingStatus: 'Image Preparation'
+    }
+  },
+  {
+    id: 'CAS-2024-003',
+    patientId: 'PAT-9134',
+    age: 72,
+    gender: 'Male',
+    medicalHistory: 'Peripheral artery disease, chronic kidney disease (Stage 2), hypertension.',
+    riskFactors: ['Hypertension', 'Active Smoker', 'Peripheral Vascular Disease'],
+    clinicalNotes: 'Severe calf claudication at 100 meters. Pre-interventional assessment.',
+    modality: 'MRA (Magnetic Resonance Angiography)',
+    scanDate: '2024-10-10',
+    anatomicalRegion: 'Peripheral / Femoral Arteries',
+    status: 'Pending',
+    modelVersion: 'v1.4.2-baseline',
+    createdAt: '2024-10-10T08:45:00Z',
+    fileInfo: {
+      fileName: 'PAT9134_MRA_LOWER_LIMB.dcm',
+      fileSize: '198.2 MB',
+      fileType: 'DICOM (.dcm)',
+      slices: 640,
+      resolution: '256 x 256 x 1.0mm',
+      uploadedAt: '2024-10-10T08:52:10Z',
+      uploadStatus: 'Completed',
+      preprocessingStatus: 'Ready for Analysis'
+    }
+  },
+  {
+    id: 'CAS-2024-004',
+    patientId: 'PAT-6250',
+    age: 49,
+    gender: 'Female',
+    medicalHistory: 'Unruptured intracranial aneurysm screening; migraine with aura.',
+    riskFactors: ['Hypertension', 'Oral Contraceptive Use'],
+    clinicalNotes: 'High-resolution intracranial vasculature assessment. Circle of Willis evaluation.',
+    modality: 'MRA (Magnetic Resonance Angiography)',
+    scanDate: '2024-10-11',
+    anatomicalRegion: 'Cerebral Arteries',
+    status: 'Review Required',
+    modelVersion: 'v1.4.1',
+    createdAt: '2024-10-11T14:10:00Z',
+    fileInfo: {
+      fileName: 'PAT6250_BRAIN_MRA_TOF.nii.gz',
+      fileSize: '112.5 MB',
+      fileType: 'NIfTI (.nii.gz)',
+      slices: 280,
+      resolution: '512 x 512 x 0.8mm',
+      uploadedAt: '2024-10-11T14:15:30Z',
+      uploadStatus: 'Completed',
+      preprocessingStatus: 'Ready for Analysis'
+    }
+  },
+  {
+    id: 'CAS-2024-005',
+    patientId: 'PAT-4109',
+    age: 67,
+    gender: 'Male',
+    medicalHistory: 'Refractory renovascular hypertension on 4 antihypertensive agents.',
+    riskFactors: ['Refractory Hypertension', 'Atherosclerosis'],
+    clinicalNotes: 'Suspected bilateral or unilateral renal artery stenosis.',
+    modality: 'CTA (Computed Tomography Angiography)',
+    scanDate: '2024-10-12',
+    anatomicalRegion: 'Renal Arteries',
+    status: 'Failed',
+    modelVersion: 'v1.4.2-baseline',
+    createdAt: '2024-10-12T16:02:00Z',
+    fileInfo: {
+      fileName: 'PAT4109_RENAL_CTA_CORRUPT.dcm',
+      fileSize: '45.1 MB',
+      fileType: 'DICOM (.dcm)',
+      slices: 120,
+      resolution: '512 x 512 x 1.25mm',
+      uploadedAt: '2024-10-12T16:05:00Z',
+      uploadStatus: 'Failed',
+      preprocessingStatus: 'Resolution Check (Failed)'
+    }
+  },
+  {
+    id: 'CAS-2024-006',
+    patientId: 'PAT-5532',
+    age: 61,
+    gender: 'Female',
+    medicalHistory: 'Prior myocardial infarction (2021), DES stent in circumflex.',
+    riskFactors: ['CAD Post-PCI', 'Dyslipidemia', 'Hypertension'],
+    clinicalNotes: 'Follow-up assessment for in-stent restenosis vs new de novo stenosis in RCA.',
+    modality: 'CTA (Computed Tomography Angiography)',
+    scanDate: '2024-10-13',
+    anatomicalRegion: 'Coronary Arteries',
+    status: 'Completed',
+    modelVersion: 'v1.4.2-baseline',
+    createdAt: '2024-10-13T10:30:00Z',
+    fileInfo: {
+      fileName: 'PAT5532_CORONARY_CTA_CCTA.dcm',
+      fileSize: '164.2 MB',
+      fileType: 'DICOM (.dcm)',
+      slices: 480,
+      resolution: '512 x 512 x 0.5mm',
+      uploadedAt: '2024-10-13T10:35:45Z',
+      uploadStatus: 'Completed',
+      preprocessingStatus: 'Ready for Analysis'
+    }
+  }
+];
+
+export const INITIAL_NOTIFICATIONS = [
+  {
+    id: 'NOTIF-001',
+    type: 'processing_completed',
+    title: 'Processing Completed',
+    message: 'Preprocessing and pipeline ingestion completed for Case CAS-2024-001.',
+    caseId: 'CAS-2024-001',
+    patientId: 'PAT-8821',
+    timestamp: '15 minutes ago',
+    read: false
+  },
+  {
+    id: 'NOTIF-002',
+    type: 'low_confidence',
+    title: 'Low-Confidence Result Flag',
+    message: 'Contrast opacity threshold below optimal gradient in distal cerebral branches for Case CAS-2024-004.',
+    caseId: 'CAS-2024-004',
+    patientId: 'PAT-6250',
+    timestamp: '2 hours ago',
+    read: false
+  },
+  {
+    id: 'NOTIF-003',
+    type: 'processing_failed',
+    title: 'Processing Failed',
+    message: 'Slice sequence gap detected during resolution verification for Case CAS-2024-005. Re-upload advised.',
+    caseId: 'CAS-2024-005',
+    patientId: 'PAT-4109',
+    timestamp: '5 hours ago',
+    read: false
+  },
+  {
+    id: 'NOTIF-004',
+    type: 'quality_issue',
+    title: 'Image Quality Issue',
+    message: 'Cardiac motion blur artifacts flagged in phase 75% for Case CAS-2024-002.',
+    caseId: 'CAS-2024-002',
+    patientId: 'PAT-7910',
+    timestamp: '1 day ago',
+    read: true
+  },
+  {
+    id: 'NOTIF-005',
+    type: 'system_info',
+    title: 'Pipeline Model Updated',
+    message: 'Standard baseline pipeline configuration updated to version v1.4.2-baseline.',
+    caseId: null,
+    patientId: null,
+    timestamp: '2 days ago',
+    read: true
+  }
+];
+
+export const INITIAL_REPORTS = [
+  {
+    id: 'REP-2024-001',
+    caseId: 'CAS-2024-001',
+    patientId: 'PAT-8821',
+    date: '2024-10-08',
+    modality: 'CTA',
+    region: 'Carotid Arteries',
+    status: 'Finalized',
+    author: 'Dr. Sarah Mitchell',
+    summary: 'Carotid bifurcation assessment completed. Image quality suitable for clinical diagnosis.'
+  },
+  {
+    id: 'REP-2024-002',
+    caseId: 'CAS-2024-006',
+    patientId: 'PAT-5532',
+    date: '2024-10-13',
+    modality: 'CTA',
+    region: 'Coronary Arteries',
+    status: 'Finalized',
+    author: 'Dr. Sarah Mitchell',
+    summary: 'Coronary CTA acquisition and slice alignment validated. Multi-planar reconstruction ready.'
+  },
+  {
+    id: 'REP-2024-003',
+    caseId: 'CAS-2024-003',
+    patientId: 'PAT-9134',
+    date: '2024-10-10',
+    modality: 'MRA',
+    region: 'Peripheral / Femoral Arteries',
+    status: 'Pending Review',
+    author: 'Dr. Marcus Vance',
+    summary: 'Lower limb peripheral angiography. Awaiting clinical radiologist sign-off.'
+  },
+  {
+    id: 'REP-2024-004',
+    caseId: 'CAS-2024-004',
+    patientId: 'PAT-6250',
+    date: '2024-10-11',
+    modality: 'MRA',
+    region: 'Cerebral Arteries',
+    status: 'Draft',
+    author: 'Dr. Sarah Mitchell',
+    summary: 'Intracranial time-of-flight sequence. Review flagged for vessel contrast density.'
+  }
+];
