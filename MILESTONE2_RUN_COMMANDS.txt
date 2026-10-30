@@ -1,0 +1,62 @@
+ARTERY MEDICAL - MILESTONE 2 PACKAGE
+
+IMPORTANT
+- This package contains the project source and Milestone 2 report.
+- The connected web application can run, but trained AI inference is not yet integrated/configured.
+- The 3D U-Net files are a research starter, not a trained/validated clinical model.
+- Do not report model scores or stenosis measurements until actual experiments have been run.
+
+WINDOWS SETUP
+1) Extract this ZIP.
+2) Open PowerShell in the extracted Artery_Medical folder.
+
+BACKEND - TERMINAL 1
+cd .\backend
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+uvicorn main:app --reload --host 127.0.0.1 --port 8000
+
+Verify:
+http://127.0.0.1:8000/api/health
+http://127.0.0.1:8000/docs
+Keep this terminal running.
+
+FRONTEND - TERMINAL 2
+Open a second PowerShell window. From the extracted Artery_Medical folder:
+cd .\artery-ai-frontend
+copy .env.example .env
+npm install
+npm run dev
+
+Open the URL printed by Vite. The supplied vite.config.js uses port 3000, normally:
+http://localhost:3000
+
+CORS NOTE
+The frontend dev server is configured for port 3000. Ensure backend CORS_ORIGINS includes http://localhost:3000. If you see a browser CORS error, update the backend CORS_ORIGINS setting as described in README_BACKEND_SETUP.md, then restart the backend.
+
+OPTIONAL IMAGING DEPENDENCIES
+For medical-image preprocessing experiments, open a third terminal and run:
+cd .\backend
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-imaging.txt
+
+OPTIONAL 3D U-NET RESEARCH DEPENDENCIES
+From the extracted Artery_Medical folder:
+cd .\backend\ml
+..\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-ml.txt
+
+Before training, read backend\ml\README.md and inspect/edit the dataset paths and configuration in train_3d_unet.py. Use the dataset's documented patient-level splits. Training requires paired image and mask volumes and may require a suitable GPU. Do not assume that training has succeeded until logs, checkpoints and evaluation outputs exist.
+
+DEMO FLOW
+1) Start backend and frontend in separate terminals.
+2) Open the frontend URL.
+3) Sign in or register.
+4) Create a test case.
+5) Upload a supported non-sensitive sample file.
+6) Confirm the file metadata appears for the case.
+
+CURRENT LIMITATION
+Upload stores the file and metadata. It does not automatically run segmentation, centerline extraction, diameter estimation or stenosis detection. Those Milestone 2 tasks require implementation, training and validation.
