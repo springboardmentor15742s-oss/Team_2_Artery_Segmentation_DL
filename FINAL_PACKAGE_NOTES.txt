@@ -1,0 +1,20 @@
+ARTERY MEDICAL — FINAL PACKAGE NOTES
+
+This package is a local coronary-image research prototype. It contains a
+React/Vite frontend, FastAPI/SQLite backend, local image and annotation data,
+training/evaluation scripts, saved model artifacts, and Windows launchers.
+
+Implemented research workflows include case management, image upload and
+readability checks, 2D segmentation comparison, optional U-Net inference,
+research stenosis-candidate localization, visualization/XAI where supported,
+and clinician review. The included dataset reports and model checkpoints are
+the evidence for the specific experiments that were run.
+
+The package does not establish prospective clinical performance. Severity
+classification and calibrated narrowing are unavailable where valid task
+labels or physical calibration are absent. Pixel-based candidates, detector
+scores, and heatmaps must not be presented as confirmed findings or diagnoses.
+
+For Windows startup commands, see FINAL_REVIEW_README.md. START_APP.bat starts
+the services without retraining. START_PIPELINE.bat runs training and held-out
+evaluation when explicitly requested.

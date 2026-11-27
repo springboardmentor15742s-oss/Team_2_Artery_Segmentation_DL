@@ -1,0 +1,94 @@
+{
+  "dataset": "CADICA selectedVideos",
+  "dataset_root": "dataset/CADICA",
+  "dataset_frames_available": 18154,
+  "image_split": "patient-held-out; no patient appears in more than one split",
+  "patient_counts": {
+    "train": 30,
+    "validation": 6,
+    "test": 6
+  },
+  "image_counts": {
+    "train": 480,
+    "validation": 96,
+    "test": 96
+  },
+  "epochs": 5,
+  "selection_metric": "validation PSNR",
+  "best_validation_psnr_db": 21.8202,
+  "held_out_test_metrics": {
+    "noisy_psnr": 10.4337,
+    "median_psnr": 21.9571,
+    "model_psnr": 22.329,
+    "noisy_ssim": 0.1658,
+    "median_ssim": 0.7769,
+    "model_ssim": 0.763
+  },
+  "baseline": "3x3 median filter on the same synthesized noise",
+  "checkpoint": "training/models/cadica_denoiser.pt",
+  "baseline_check_passed": true,
+  "duration_seconds": 63.71,
+  "scope": "Research denoising only. Noise is synthetically added to acquired frames; this is not clinical validation.",
+  "history": [
+    {
+      "epoch": 1,
+      "train_l1": 0.15197,
+      "validation": {
+        "noisy_psnr": 10.3396,
+        "median_psnr": 21.5379,
+        "model_psnr": 11.5678,
+        "noisy_ssim": 0.2186,
+        "median_ssim": 0.8376,
+        "model_ssim": 0.2658
+      }
+    },
+    {
+      "epoch": 2,
+      "train_l1": 0.09693,
+      "validation": {
+        "noisy_psnr": 10.2986,
+        "median_psnr": 21.5653,
+        "model_psnr": 20.2493,
+        "noisy_ssim": 0.2165,
+        "median_ssim": 0.8382,
+        "model_ssim": 0.7729
+      }
+    },
+    {
+      "epoch": 3,
+      "train_l1": 0.05048,
+      "validation": {
+        "noisy_psnr": 10.2587,
+        "median_psnr": 21.5843,
+        "model_psnr": 21.8202,
+        "noisy_ssim": 0.2155,
+        "median_ssim": 0.8391,
+        "model_ssim": 0.8063
+      }
+    },
+    {
+      "epoch": 4,
+      "train_l1": 0.04677,
+      "validation": {
+        "noisy_psnr": 10.2828,
+        "median_psnr": 21.5797,
+        "model_psnr": 21.3293,
+        "noisy_ssim": 0.217,
+        "median_ssim": 0.8391,
+        "model_ssim": 0.8117
+      }
+    },
+    {
+      "epoch": 5,
+      "train_l1": 0.04457,
+      "validation": {
+        "noisy_psnr": 10.2675,
+        "median_psnr": 21.5904,
+        "model_psnr": 21.7541,
+        "noisy_ssim": 0.2167,
+        "median_ssim": 0.8395,
+        "model_ssim": 0.8216
+      }
+    }
+  ]
+}

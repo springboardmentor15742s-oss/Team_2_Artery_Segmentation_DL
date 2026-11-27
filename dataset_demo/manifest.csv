@@ -1,0 +1,9 @@
+case_id,image,label,is_synthetic,narrowing_percent_demo
+SYN-001,images/demo_01.png,stenosis,True,70
+SYN-002,images/demo_02.png,normal,True,0
+SYN-003,images/demo_03.png,stenosis,True,70
+SYN-004,images/demo_04.png,normal,True,0
+SYN-005,images/demo_05.png,stenosis,True,70
+SYN-006,images/demo_06.png,normal,True,0
+SYN-007,images/demo_07.png,stenosis,True,70
+SYN-008,images/demo_08.png,normal,True,0

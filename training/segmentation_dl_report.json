@@ -1,0 +1,59 @@
+{
+  "title": "Deep Learning Segmentation Comparison",
+  "dataset_cases": 675,
+  "train_cases": 472,
+  "validation_cases": 68,
+  "test_cases": 135,
+  "split_method": "Deterministic severity-stratified 70/10/20 train/validation/test split (seed 42).",
+  "selected_model": "U-Net",
+  "selection_metric": "validation Dice",
+  "models": [
+    {
+      "name": "U-Net",
+      "artifact": "training/models/u-net.pt",
+      "best_validation_dice": 0.9486,
+      "test_metrics": {
+        "dice": 0.8895,
+        "iou": 0.801,
+        "precision": 0.945,
+        "recall": 0.8401
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.10222,
+          "validation": {
+            "dice": 0.9485687635201736,
+            "iou": 0.9021690916240661,
+            "precision": 0.9477067161047056,
+            "recall": 0.9494323806244641
+          }
+        }
+      ]
+    },
+    {
+      "name": "U-Net++",
+      "artifact": "training/models/u-netpp.pt",
+      "best_validation_dice": 0.9219,
+      "test_metrics": {
+        "dice": 0.8137,
+        "iou": 0.6859,
+        "precision": 0.7028,
+        "recall": 0.9661
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.13373,
+          "validation": {
+            "dice": 0.9219434211440884,
+            "iou": 0.8551901998710509,
+            "precision": 0.8641317566393718,
+            "recall": 0.9880450652373275
+          }
+        }
+      ]
+    }
+  ],
+  "duration_seconds": 597.6
+}

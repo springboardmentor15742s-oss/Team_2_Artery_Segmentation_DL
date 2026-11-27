@@ -1,0 +1,119 @@
+{
+  "model": "RandomForest stenosis detector",
+  "model_version": "trained_artery_classifier.joblib",
+  "curve_kind": "cumulative_estimators",
+  "x_axis_label": "Cumulative trees in fitted forest",
+  "split_method": "Deterministic severity-stratified train/validation/test; test split excluded from curves.",
+  "train_cases": 472,
+  "validation_cases": 68,
+  "held_out_test_cases": 135,
+  "measured_at": "2026-11-25T16:28:06Z",
+  "duration_seconds": 13.057,
+  "points": [
+    {
+      "estimators": 1,
+      "train": {
+        "log_loss": 0.7056701933091499,
+        "accuracy": 0.9639830508474576,
+        "f1": 0.9773030707610146
+      },
+      "validation": {
+        "log_loss": 2.1452028107917815,
+        "accuracy": 0.8970588235294118,
+        "f1": 0.9357798165137615
+      }
+    },
+    {
+      "estimators": 5,
+      "train": {
+        "log_loss": 0.04093719332577529,
+        "accuracy": 0.9915254237288136,
+        "f1": 0.9947229551451188
+      },
+      "validation": {
+        "log_loss": 0.4525767924688641,
+        "accuracy": 0.9264705882352942,
+        "f1": 0.954954954954955
+      }
+    },
+    {
+      "estimators": 10,
+      "train": {
+        "log_loss": 0.040185319262137704,
+        "accuracy": 0.9936440677966102,
+        "f1": 0.9960474308300395
+      },
+      "validation": {
+        "log_loss": 0.14522482557630043,
+        "accuracy": 0.9411764705882353,
+        "f1": 0.9636363636363636
+      }
+    },
+    {
+      "estimators": 20,
+      "train": {
+        "log_loss": 0.0403106748591551,
+        "accuracy": 0.9978813559322034,
+        "f1": 0.9986859395532195
+      },
+      "validation": {
+        "log_loss": 0.117147913651766,
+        "accuracy": 0.9264705882352942,
+        "f1": 0.954954954954955
+      }
+    },
+    {
+      "estimators": 40,
+      "train": {
+        "log_loss": 0.04077803706870769,
+        "accuracy": 0.9978813559322034,
+        "f1": 0.9986859395532195
+      },
+      "validation": {
+        "log_loss": 0.11996622513761376,
+        "accuracy": 0.9411764705882353,
+        "f1": 0.9636363636363636
+      }
+    },
+    {
+      "estimators": 60,
+      "train": {
+        "log_loss": 0.041148688537301296,
+        "accuracy": 0.9978813559322034,
+        "f1": 0.9986859395532195
+      },
+      "validation": {
+        "log_loss": 0.11675604467961302,
+        "accuracy": 0.9264705882352942,
+        "f1": 0.954954954954955
+      }
+    },
+    {
+      "estimators": 80,
+      "train": {
+        "log_loss": 0.04204484738785247,
+        "accuracy": 0.9978813559322034,
+        "f1": 0.9986859395532195
+      },
+      "validation": {
+        "log_loss": 0.12519723556361195,
+        "accuracy": 0.9264705882352942,
+        "f1": 0.954954954954955
+      }
+    },
+    {
+      "estimators": 100,
+      "train": {
+        "log_loss": 0.04220599834547642,
+        "accuracy": 0.9978813559322034,
+        "f1": 0.9986859395532195
+      },
+      "validation": {
+        "log_loss": 0.12624938801937446,
+        "accuracy": 0.9264705882352942,
+        "f1": 0.954954954954955
+      }
+    }
+  ],
+  "limitations": "Curves evaluate prefixes of the already-fitted Random Forest. They show train/validation behavior by tree count, not epoch-by-epoch neural training. No measurements from the held-out test cohort are used in these curves."
+}

@@ -1,0 +1,317 @@
+{
+  "organization": "Infosys Healthcare & Life Sciences AI Lab",
+  "benchmark_suite": "Infosys Artery AI Held-Out Validation",
+  "timestamp": "2026-11-25T16:27:07Z",
+  "test_cases_count": 135,
+  "split_method": "Deterministic severity-stratified 70/10/20 train/validation/test split (seed 42); classifier inputs use scans only.",
+  "evaluation_duration_seconds": 14.21,
+  "metrics": {
+    "stenosis_detection": {
+      "accuracy": 0.9778,
+      "precision": 1.0,
+      "recall_sensitivity": 0.9725,
+      "specificity": 1.0,
+      "confusion_matrix": {
+        "labels": [
+          "No stenosis",
+          "Stenosis"
+        ],
+        "values": [
+          [
+            26,
+            0
+          ],
+          [
+            3,
+            106
+          ]
+        ]
+      },
+      "f1_score": 0.986,
+      "roc_auc": 0.9993,
+      "roc_curve": {
+        "false_positive_rate": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.076923,
+          0.076923,
+          0.461538,
+          0.538462,
+          0.923077,
+          1.0
+        ],
+        "true_positive_rate": [
+          0.0,
+          0.440367,
+          0.449541,
+          0.587156,
+          0.614679,
+          0.66055,
+          0.669725,
+          0.706422,
+          0.715596,
+          0.733945,
+          0.761468,
+          0.779817,
+          0.853211,
+          0.87156,
+          0.990826,
+          0.990826,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "model_comparison": [
+        {
+          "name": "Trained stenosis detector",
+          "architecture": "RandomForestClassifier \u00b7 100 trees \u00b7 QCA image features",
+          "training_cases": 472,
+          "test_cases": 135,
+          "accuracy": 0.9777777777777777,
+          "roc_auc": 0.9992942836979534,
+          "precision": 1.0,
+          "recall": 0.9724770642201835,
+          "f1_score": 0.986046511627907,
+          "confusion_matrix": {
+            "labels": [
+              "No stenosis",
+              "Stenosis"
+            ],
+            "values": [
+              [
+                26,
+                0
+              ],
+              [
+                3,
+                106
+              ]
+            ]
+          },
+          "roc_curve": {
+            "false_positive_rate": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.07692307692307693,
+              0.07692307692307693,
+              0.46153846153846156,
+              0.5384615384615384,
+              0.9230769230769231,
+              1.0
+            ],
+            "true_positive_rate": [
+              0.0,
+              0.44036697247706424,
+              0.44954128440366975,
+              0.5871559633027523,
+              0.6146788990825688,
+              0.6605504587155964,
+              0.6697247706422018,
+              0.7064220183486238,
+              0.7155963302752294,
+              0.7339449541284404,
+              0.7614678899082569,
+              0.7798165137614679,
+              0.8532110091743119,
+              0.8715596330275229,
+              0.9908256880733946,
+              0.9908256880733946,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        },
+        {
+          "name": "Linear QCA baseline",
+          "architecture": "LogisticRegression \u00b7 QCA image features",
+          "training_cases": 472,
+          "test_cases": 135,
+          "accuracy": 0.9629629629629629,
+          "roc_auc": 0.9957657021877205,
+          "precision": 1.0,
+          "recall": 0.9541284403669725,
+          "f1_score": 0.9765258215962441,
+          "confusion_matrix": {
+            "labels": [
+              "No stenosis",
+              "Stenosis"
+            ],
+            "values": [
+              [
+                26,
+                0
+              ],
+              [
+                5,
+                104
+              ]
+            ]
+          },
+          "roc_curve": {
+            "false_positive_rate": [
+              0.0,
+              0.0,
+              0.0,
+              0.07692307692307693,
+              0.07692307692307693,
+              0.3076923076923077,
+              0.3076923076923077,
+              1.0
+            ],
+            "true_positive_rate": [
+              0.0,
+              0.027522935779816515,
+              0.9724770642201835,
+              0.9724770642201835,
+              0.9908256880733946,
+              0.9908256880733946,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      ]
+    },
+    "severity_classification": {
+      "accuracy": 0.8815,
+      "weighted_f1": 0.8817,
+      "classes": [
+        "Normal",
+        "Mild",
+        "Moderate",
+        "Severe",
+        "Critical"
+      ],
+      "confusion_matrix": [
+        [
+          25,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          20,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          9,
+          22,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          26,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          26
+        ]
+      ],
+      "class_report": {
+        "Normal": {
+          "precision": 0.9259259259259259,
+          "recall": 0.9615384615384616,
+          "f1-score": 0.9433962264150944,
+          "support": 26.0
+        },
+        "Mild": {
+          "precision": 0.6666666666666666,
+          "recall": 0.7692307692307693,
+          "f1-score": 0.7142857142857143,
+          "support": 26.0
+        },
+        "Moderate": {
+          "precision": 0.8461538461538461,
+          "recall": 0.7096774193548387,
+          "f1-score": 0.7719298245614035,
+          "support": 31.0
+        },
+        "Severe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 26.0
+        },
+        "Critical": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 26.0
+        },
+        "accuracy": 0.8814814814814815,
+        "macro avg": {
+          "precision": 0.8877492877492876,
+          "recall": 0.8880893300248139,
+          "f1-score": 0.8859223530524425,
+          "support": 135.0
+        },
+        "weighted avg": {
+          "precision": 0.8862087158383454,
+          "recall": 0.8814814814814815,
+          "f1-score": 0.8817004075527742,
+          "support": 135.0
+        }
+      }
+    },
+    "narrowing_regression": {
+      "mean_absolute_error_percent": 4.77,
+      "root_mean_squared_error_percent": 6.69,
+      "r2_score": 0.9499
+    },
+    "segmentation_benchmark": {
+      "mean_dice_similarity_coefficient": 0.8697,
+      "mean_intersection_over_union": 0.8023
+    }
+  },
+  "artifacts_generated": [
+    "training/test_report.json",
+    "training/evaluation_plots.png",
+    "training/confusion_matrix.png",
+    "training/TEST_BENCHMARK_SUMMARY.md"
+  ],
+  "roc_curve_artifact": "training/evaluation_plots.png"
+}

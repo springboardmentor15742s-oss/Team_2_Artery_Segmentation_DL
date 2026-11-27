@@ -1,0 +1,113 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      ARTERY_SECRET_KEY: ${ARTERY_SECRET_KEY:?Set ARTERY_SECRET_KEY in .env}
+      ARTERY_DB_PATH: /app/data/artery_ai.db
+      ARTERY_UPLOAD_DIR: /app/data/uploads
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
+      ARTERY_SMTP_HOST: ${ARTERY_SMTP_HOST:-}
+      ARTERY_SMTP_PORT: ${ARTERY_SMTP_PORT:-587}
+      ARTERY_SMTP_USERNAME: ${ARTERY_SMTP_USERNAME:-}
+      ARTERY_SMTP_PASSWORD: ${ARTERY_SMTP_PASSWORD:-}
+      ARTERY_SMTP_FROM: ${ARTERY_SMTP_FROM:-}
+      ARTERY_SMTP_STARTTLS: ${ARTERY_SMTP_STARTTLS:-true}
+      ARTERY_SMTP_USE_SSL: ${ARTERY_SMTP_USE_SSL:-false}
+    expose:
+      - "8000"
+    volumes:
+      - artery_data:/app/data
+      - artery_artifacts:/app/training
+      - type: bind
+        source: ./training/test.py
+        target: /app/training/test.py
+        read_only: true
+      - type: bind
+        source: ./training/classifier_learning_curves.py
+        target: /app/training/classifier_learning_curves.py
+        read_only: true
+      - type: bind
+        source: ./training/training_report.json
+        target: /app/training/training_report.json
+        read_only: true
+      - type: bind
+        source: ./training/test_report.json
+        target: /app/training/test_report.json
+      - type: bind
+        source: ./training/classifier_learning_curves.json
+        target: /app/training/classifier_learning_curves.json
+      - type: bind
+        source: ./backend/artery_ai.db
+        target: /app/data/artery_ai.db
+      - type: bind
+        source: ./backend/storage/uploads
+        target: /app/data/uploads
+      - type: bind
+        source: ./arcade (1)/arcade
+        target: /app/arcade (1)/arcade
+        read_only: true
+      - type: bind
+        source: ./dataset/CADICA
+        target: /app/dataset/CADICA
+        read_only: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,noexec,nosuid
+    init: true
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=5)"]
+      interval: 15s
+      timeout: 7s
+      retries: 10
+      start_period: 180s
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
+    networks:
+      - artery_net
+
+  web:
+    build:
+      context: .
+      dockerfile: artery-ai-frontend/Dockerfile
+      args:
+        VITE_API_BASE_URL: /api
+    ports:
+      - "${WEB_BIND_ADDRESS:-127.0.0.1}:${WEB_PORT:-8081}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    init: true
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/healthz || exit 1"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+    networks:
+      - artery_net
+
+volumes:
+  artery_data:
+  artery_artifacts:
+
+networks:
+  artery_net:
+    driver: bridge

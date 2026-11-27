@@ -1,0 +1,270 @@
+{
+  "model": "CADICA single-class lesion box detector",
+  "version": "1.0.0",
+  "deployment_scope": "CADICA research samples only; not clinically validated.",
+  "task": "single-class lesion bounding-box localization",
+  "category_codes": {
+    "p0_20": 1944,
+    "p20_50": 1128,
+    "p100": 204,
+    "p90_98": 930,
+    "p70_90": 893,
+    "p50_70": 999,
+    "p99": 63
+  },
+  "category_code_interpretation": "Not mapped to severity; consult the CADICA annotation guide before classification.",
+  "dataset_summary": {
+    "selected_frames": 6126,
+    "positive_frames": 3996,
+    "negative_frames": 2130,
+    "ground_truth_boxes": 6161,
+    "multiple_box_cell_collisions": 0,
+    "missing_annotated_frames_skipped": 0,
+    "image_size": [
+      256,
+      256
+    ]
+  },
+  "split_method": "Deterministic patient-level 70/15/15 split; all frames from each patient remain in one split.",
+  "patient_splits": {
+    "train": [
+      "p4",
+      "p5",
+      "p10",
+      "p11",
+      "p12",
+      "p13",
+      "p14",
+      "p17",
+      "p19",
+      "p20",
+      "p21",
+      "p22",
+      "p23",
+      "p24",
+      "p25",
+      "p26",
+      "p27",
+      "p29",
+      "p30",
+      "p31",
+      "p32",
+      "p33",
+      "p34",
+      "p35",
+      "p36",
+      "p37",
+      "p38",
+      "p39",
+      "p40",
+      "p42"
+    ],
+    "validation": [
+      "p1",
+      "p3",
+      "p6",
+      "p7",
+      "p9",
+      "p28"
+    ],
+    "test": [
+      "p2",
+      "p8",
+      "p15",
+      "p16",
+      "p18",
+      "p41"
+    ]
+  },
+  "splits": {
+    "train": {
+      "patients": 30,
+      "images": 4002,
+      "positive_images": 3004,
+      "negative_images": 998,
+      "boxes": 4753
+    },
+    "validation": {
+      "patients": 6,
+      "images": 997,
+      "positive_images": 277,
+      "negative_images": 720,
+      "boxes": 277
+    },
+    "test": {
+      "patients": 6,
+      "images": 1127,
+      "positive_images": 715,
+      "negative_images": 412,
+      "boxes": 1131
+    }
+  },
+  "selection_metric": "Minimum validation objectness and box regression loss; score threshold selected by validation F1 at IoU 0.5.",
+  "validation_metrics": {
+    "score_threshold": 0.05,
+    "iou_threshold": 0.5,
+    "true_positives": 0,
+    "false_positives": 49850,
+    "false_negatives": 277,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "mAP50": 0.0,
+    "ground_truth_boxes": 277,
+    "evaluated_images": 997
+  },
+  "validation_threshold_sweep": [
+    {
+      "score_threshold": 0.05,
+      "iou_threshold": 0.5,
+      "true_positives": 0,
+      "false_positives": 49850,
+      "false_negatives": 277,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "ground_truth_boxes": 277,
+      "evaluated_images": 997
+    },
+    {
+      "score_threshold": 0.1,
+      "iou_threshold": 0.5,
+      "true_positives": 0,
+      "false_positives": 49850,
+      "false_negatives": 277,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "ground_truth_boxes": 277,
+      "evaluated_images": 997
+    },
+    {
+      "score_threshold": 0.15,
+      "iou_threshold": 0.5,
+      "true_positives": 0,
+      "false_positives": 49850,
+      "false_negatives": 277,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "ground_truth_boxes": 277,
+      "evaluated_images": 997
+    },
+    {
+      "score_threshold": 0.2,
+      "iou_threshold": 0.5,
+      "true_positives": 0,
+      "false_positives": 49850,
+      "false_negatives": 277,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "ground_truth_boxes": 277,
+      "evaluated_images": 997
+    },
+    {
+      "score_threshold": 0.25,
+      "iou_threshold": 0.5,
+      "true_positives": 0,
+      "false_positives": 49850,
+      "false_negatives": 277,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "ground_truth_boxes": 277,
+      "evaluated_images": 997
+    },
+    {
+      "score_threshold": 0.3,
+      "iou_threshold": 0.5,
+      "true_positives": 0,
+      "false_positives": 49850,
+      "false_negatives": 277,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "ground_truth_boxes": 277,
+      "evaluated_images": 997
+    },
+    {
+      "score_threshold": 0.4,
+      "iou_threshold": 0.5,
+      "true_positives": 0,
+      "false_positives": 49850,
+      "false_negatives": 277,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "ground_truth_boxes": 277,
+      "evaluated_images": 997
+    },
+    {
+      "score_threshold": 0.5,
+      "iou_threshold": 0.5,
+      "true_positives": 0,
+      "false_positives": 49850,
+      "false_negatives": 277,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "ground_truth_boxes": 277,
+      "evaluated_images": 997
+    },
+    {
+      "score_threshold": 0.6,
+      "iou_threshold": 0.5,
+      "true_positives": 0,
+      "false_positives": 49850,
+      "false_negatives": 277,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "ground_truth_boxes": 277,
+      "evaluated_images": 997
+    }
+  ],
+  "held_out_test_metrics": {
+    "score_threshold": 0.05,
+    "iou_threshold": 0.5,
+    "true_positives": 3,
+    "false_positives": 56347,
+    "false_negatives": 1128,
+    "precision": 5.323868677905945e-05,
+    "recall": 0.002652519893899204,
+    "f1": 0.00010438231763539256,
+    "mAP50": 1.4193453458838157e-07,
+    "ground_truth_boxes": 1131,
+    "evaluated_images": 1127
+  },
+  "test_threshold_source": "Selected on validation split; test split evaluated once after checkpoint selection.",
+  "checkpoint": "training\\models\\cadica_lesion_detector.pt",
+  "epochs_requested": 1,
+  "epochs_completed": 1,
+  "training_history": [
+    {
+      "epoch": 1,
+      "training_loss": 0.4779256970521463,
+      "training_objectness_loss": 0.36509377452956726,
+      "training_box_loss": 0.028207980756800012,
+      "validation_loss": 0.3162608515648615
+    }
+  ],
+  "duration_seconds": 438.5,
+  "clinical_severity": "Unavailable; class code definitions were not used as clinical severity labels.",
+  "narrowing_percentage": "Unavailable; no calibrated physical diameter measurements were provided.",
+  "limitations": [
+    "Research-only model trained on CADICA selected frames and lesion boxes.",
+    "Single-class predictions identify labeled lesion regions; the dataset category codes are not interpreted.",
+    "Patient-held-out performance is not external or clinical validation.",
+    "No calibrated confidence, severity, or percent narrowing is produced."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Segmentation Model Comparison",
+  "dataset": "Supplied de-identified artery image dataset",
+  "evaluation_split": "test",
+  "split_method": "Deterministic severity-stratified 70/10/20 train/validation/test split (seed 42).",
+  "cases_evaluated": 135,
+  "cases_skipped": 0,
+  "created_at": "2026-11-11T13:42:29Z",
+  "metrics": [
+    {
+      "name": "Adaptive Threshold Baseline",
+      "cases": 135,
+      "dice": 0.851,
+      "iou": 0.7651,
+      "precision": 0.848,
+      "recall": 0.8618
+    },
+    {
+      "name": "Refined Connected-Component Segmenter",
+      "cases": 135,
+      "dice": 0.8697,
+      "iou": 0.8023,
+      "precision": 0.9622,
+      "recall": 0.8045
+    }
+  ],
+  "selected_model": "Refined Connected-Component Segmenter",
+  "selection_metric": "mean Dice coefficient",
+  "interpretation": "Both methods are evaluated on the same held-out image masks. The refined method adds morphology and dominant-component filtering to the adaptive threshold baseline.",
+  "limitations": "This comparison covers the supplied 2D image masks. It is not a prospective clinical validation and does not establish diagnostic performance.",
+  "elapsed_seconds": 14.98
+}

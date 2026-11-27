@@ -1,0 +1,4 @@
+# Optional readers for clinical volume uploads supported by the analysis engine.
+pydicom>=3.0.0
+nibabel>=5.2.0
+SimpleITK>=2.3.0

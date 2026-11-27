@@ -1,0 +1,11 @@
+{
+  "model_name": "Infosys-ArteryNet-RefinedThreshold-v3",
+  "standard_input_size": [
+    256,
+    256
+  ],
+  "validation_cases": 68,
+  "mean_dice_score": 0.9033,
+  "mean_iou_score": 0.8396,
+  "note": "Measured on the validation split against supplied reference masks. This is the classical fallback; train U-Net/U-Net++ separately for deep-learning segmentation."
+}

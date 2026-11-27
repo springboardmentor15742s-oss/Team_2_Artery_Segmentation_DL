@@ -1,0 +1,64 @@
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Frontend dependencies and build output
+**/node_modules/
+**/dist/
+**/coverage/
+
+# Local configuration and credentials
+.env
+.env.local
+.env.*
+.env.*.local
+!.env.docker.example
+artery-ai-frontend/.env
+artery-ai-frontend/.env.local
+!artery-ai-frontend/.env.example
+
+# Local database, uploads, backups, logs and runtime monitoring data
+*.db
+*.sqlite
+*.sqlite3
+backend/storage/
+backups/
+prometheus-data/
+grafana-data/
+*.log
+
+# Large source datasets and downloaded archives (keep generator/docs and synthetic demo)
+*.zip
+*.7z
+*.tar
+*.tar.gz
+/arcade (1)/
+/dataset/ARCADE/
+/dataset/CADICA/
+/dataset/images/
+/dataset/masks/
+/dataset/centerlines/
+/dataset/clinical_manifest.csv
+/dataset/labels.csv
+/dataset/dataset_catalog.json
+/dataset/*.csv
+/AngioCAD_*.xlsx
+/backend/demo_seed.json
+
+# Generated image previews may contain case-level material
+/training/median*.png
+/training/*preview*.png
+/training/segmentation_examples.png
+/training/segmentation_comparison.png
+
+# Editor/OS files
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini
+

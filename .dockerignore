@@ -1,0 +1,19 @@
+.venv
+**/node_modules
+**/dist
+**/__pycache__
+**/*.pyc
+backend/storage/uploads
+backend/artery_ai.db
+training/__pycache__
+.git
+.vscode
+*.zip
+*.log
+.env
+.env.*
+!.env.docker.example
+dataset/CADICA
+arcade (1)
+dataset/**/__pycache__
+training/models/__pycache__

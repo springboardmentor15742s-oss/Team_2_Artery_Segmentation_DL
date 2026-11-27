@@ -1,0 +1,94 @@
+{
+  "organization": "Infosys Healthcare & Life Sciences AI Lab",
+  "model_suite": "Infosys Artery AI Diagnostics v2.4",
+  "timestamp": "2026-11-11T12:17:33Z",
+  "training_duration_seconds": 85.97,
+  "dataset_summary": {
+    "total_cases": 675,
+    "train_cases": 472,
+    "val_cases": 68,
+    "test_cases": 135
+  },
+  "split_method": "Deterministic severity-stratified 70/10/20 train/validation/test split (seed 42); image-only inputs for classifiers.",
+  "validation_metrics": {
+    "stenosis_detection": {
+      "accuracy": 0.9265,
+      "f1_score": 0.955,
+      "precision": 0.9464,
+      "recall": 0.9636
+    },
+    "severity_classification": {
+      "accuracy": 0.8382,
+      "weighted_f1": 0.8369,
+      "classes": [
+        "Normal",
+        "Mild",
+        "Moderate",
+        "Severe",
+        "Critical"
+      ],
+      "detailed_report": {
+        "Critical": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 13.0
+        },
+        "Mild": {
+          "precision": 0.6666666666666666,
+          "recall": 0.6153846153846154,
+          "f1-score": 0.64,
+          "support": 13.0
+        },
+        "Moderate": {
+          "precision": 0.7222222222222222,
+          "recall": 0.8125,
+          "f1-score": 0.7647058823529411,
+          "support": 16.0
+        },
+        "Normal": {
+          "precision": 0.9090909090909091,
+          "recall": 0.7692307692307693,
+          "f1-score": 0.8333333333333334,
+          "support": 13.0
+        },
+        "Severe": {
+          "precision": 0.9285714285714286,
+          "recall": 1.0,
+          "f1-score": 0.9629629629629629,
+          "support": 13.0
+        },
+        "accuracy": 0.8382352941176471,
+        "macro avg": {
+          "precision": 0.8453102453102452,
+          "recall": 0.839423076923077,
+          "f1-score": 0.8402004357298475,
+          "support": 68.0
+        },
+        "weighted avg": {
+          "precision": 0.8398798913504796,
+          "recall": 0.8382352941176471,
+          "f1-score": 0.8368697936691016,
+          "support": 68.0
+        }
+      }
+    },
+    "narrowing_regression": {
+      "mean_absolute_error_percent": 5.5,
+      "r2_score": 0.9226
+    },
+    "segmentation_benchmark": {
+      "model": "Infosys-ArteryNet-RefinedThreshold-v3",
+      "cases": 68,
+      "mean_dice_score": 0.9033,
+      "mean_iou_score": 0.8396
+    }
+  },
+  "model_artifacts": [
+    "training/models/trained_artery_classifier.joblib",
+    "training/models/severity_classifier.joblib",
+    "training/models/narrowing_regressor.joblib",
+    "training/models/feature_scaler.joblib",
+    "training/models/segmentation_config.json"
+  ]
+}

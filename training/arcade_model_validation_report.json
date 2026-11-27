@@ -1,0 +1,86 @@
+{
+  "dataset_root": "arcade (1)\\arcade",
+  "device": "cpu",
+  "models": [
+    {
+      "task": "vessel_segmentation",
+      "dataset": "ARCADE",
+      "train_images": 900,
+      "validation_images": 100,
+      "held_out_test_images": 300,
+      "selection_metric": "validation Dice",
+      "best_validation_dice": 0.592516863045229,
+      "held_out_test_metrics": {
+        "dice": 0.5709207060559868,
+        "iou": 0.39950246881007123,
+        "precision": 0.4862761890197278,
+        "recall": 0.6912431576979431
+      },
+      "checkpoint": "training\\models\\best_segmentation_model.pt",
+      "epochs": 2,
+      "duration_seconds": 251.6,
+      "history": [
+        {
+          "epoch": 1,
+          "mean_loss": 1.49407,
+          "validation": {
+            "dice": 0.27936559053216325,
+            "iou": 0.162361968931312,
+            "precision": 0.16871380037559483,
+            "recall": 0.811767114074334
+          }
+        },
+        {
+          "epoch": 2,
+          "mean_loss": 1.31325,
+          "validation": {
+            "dice": 0.592516863045229,
+            "iou": 0.42097617192572395,
+            "precision": 0.4861706016327219,
+            "recall": 0.7584144808024096
+          }
+        }
+      ]
+    },
+    {
+      "task": "stenosis_candidate_segmentation",
+      "dataset": "ARCADE",
+      "train_images": 900,
+      "validation_images": 100,
+      "held_out_test_images": 300,
+      "selection_metric": "validation Dice",
+      "best_validation_dice": 0.03154825026511135,
+      "held_out_test_metrics": {
+        "dice": 0.029228995799822452,
+        "iou": 0.014831249159607368,
+        "precision": 0.051791332112504106,
+        "recall": 0.020359568812758418
+      },
+      "checkpoint": "training\\models\\stenosis_candidate_model.pt",
+      "epochs": 2,
+      "duration_seconds": 248.2,
+      "history": [
+        {
+          "epoch": 1,
+          "mean_loss": 1.49809,
+          "validation": {
+            "dice": 0.03154825026511135,
+            "iou": 0.01602693602693603,
+            "precision": 0.04324127906976744,
+            "recall": 0.0248330550918197
+          }
+        },
+        {
+          "epoch": 2,
+          "mean_loss": 1.36368,
+          "validation": {
+            "dice": 0.019150330091216045,
+            "iou": 0.009667735205820994,
+            "precision": 0.034753978415950244,
+            "recall": 0.013216471897607123
+          }
+        }
+      ]
+    }
+  ]
+}
